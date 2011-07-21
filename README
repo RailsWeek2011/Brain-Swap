@@ -1,0 +1,17 @@
+Brain Swap
+
+Speichert Webseiten in einer DB und legt eine lokale Kopie ab. Es kann eine Beschreibung hinterlegt werden und die Einträge können getagt und in Kategorien eingeordnet werden. 
+
+Features: 
+- Suche
+- Kommentar
+- Twitter, g+ Button
+- Kategorien
+- Tags
+- Favorisierte Kategorien in einem Tab anzeigen
+- Rezeptverwaltung: handelt es sich bei der gespeicherten Webseite um ein Rezept wird es automatisch unter Rezepte gespeichert. 
+
+Optional: 
+- Details hinzufügen
+- Chromium Plugin 
+   
