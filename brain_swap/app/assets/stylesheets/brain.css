@@ -1,0 +1,15 @@
+/* Table*/
+td{
+    padding:1px;
+    text-align: center;
+}
+tr.rowb {background: #c8eaa1; }
+tr.rowa { }
+th{background: #69ad0a;}
+.fieldleft{
+    float:left;
+    margin-right: 20px;
+}
+.clear{
+    clear:both;
+}

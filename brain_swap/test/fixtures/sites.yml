@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  name: MyString
+  content: MyText
+  linkws: MyText
+  linkcp: MyText
+  category: MyString
+  tag: MyString
+  host: MyText
+
+two:
+  name: MyString
+  content: MyText
+  linkws: MyText
+  linkcp: MyText
+  category: MyString
+  tag: MyString
+  host: MyText

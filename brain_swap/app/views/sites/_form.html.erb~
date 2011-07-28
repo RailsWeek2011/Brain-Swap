@@ -1,0 +1,27 @@
+<%= form_for(@site) do |f| %>
+<br/>
+<%= f.error_messages %>
+
+  <div class="fieldleft">
+    <%= f.label "Title" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="fieldleft">
+    <%= f.label "Beschreibung" %><br />
+    <%= f.text_area :content, :size => "30x4"%>
+  </div>
+  <div class="fieldleft">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+  <div class="fieldleft">
+    <%= f.label "Link" %><br />
+    <%= f.text_area :linkws, :size => "30x4" %>
+  </div>
+
+    <div class="clear"/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

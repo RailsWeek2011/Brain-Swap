@@ -1,0 +1,36 @@
+<%= form_for(@site) do |f| %>
+  <% if @site.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@site.errors.count, "error") %> prohibited this site from being saved:</h2>
+
+      <ul>
+      <% @site.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="fieldleft">
+    <%= f.label "Title" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="fieldleft">
+    <%= f.label "Beschreibung" %><br />
+    <%= f.text_area :content, :size => "30x4"%>
+  </div>
+  <div class="fieldleft">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+  <div class="fieldleft">
+    <%= f.label "Link" %><br />
+    <%= f.text_area :linkws, :size => "30x4" %>
+  </div>
+
+    <div class="clear"/>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>

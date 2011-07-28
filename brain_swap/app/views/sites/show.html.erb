@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @site.name %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @site.content %>
+</p>
+
+<p>
+  <b>Linkws:</b>
+  <%= @site.linkws %>
+</p>
+
+<p>
+  <b>Linkcp:</b>
+  <%= @site.linkcp %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @site.category %>
+</p>
+
+<p>
+  <b>Tag:</b>
+  <%= @site.tag %>
+</p>
+
+<p>
+  <b>Host:</b>
+  <%= @site.host %>
+</p>
+
+
+<%= link_to 'Edit', edit_site_path(@site) %> |
+<%= link_to 'Back', sites_path %>
