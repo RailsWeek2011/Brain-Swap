@@ -1,20 +1,37 @@
 <h1>Brain Swap</h1>
-
-<table >
+Test: 
+<% form_tag "/search", :method => 'get' do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<%= link_to 'New Site', new_site_path %> 
+<table width="100%">
   <tr>
+    <th>Datum</th>
     <th>Title</th>
     <th>Beschreibung</th>
     <th>Category</th>
     <th>Host</th>
+    <th>Gesichert</th>
 
   </tr>
 
 <% @sites.each do |site| %>
   <tr class="<%=cycle('rowa','rowb')%>">
-    <td class="rowa"><%=link_to site.name, site.linkws %></td>
-    <td><%= site.content %></td>
+    <td><%= site.created_at.strftime('%d.%m.%y - %H:%M')+" h" %></td>
+    <td><%=link_to site.name, site.linkws %></td>
+    <td><%= raw site.content.gsub(/#(\w*)/) { link_to("##{$1}", "heise.de") }%></td>
     <td><%= site.category %></td>
     <td><%= site.host %></td>
+    <% if @sites.count(:linkcp) != 0 %>
+        <td><%= image_tag("CheckedIcon.jpg",:alt=>"CheckIcon", 
+                                            :size=>"25x30", :border=>0)%></td>
+    <% else%>
+        <td><%= image_tag("ftcheckedbox.png",:alt=>"CheckIcon", 
+                                             :size=>"20x20", :border=>0)%></td>
+    <% end %>
     <td><%= link_to 'Show', site %></td>
     <td><%= link_to 'Edit', edit_site_path(site) %></td>
     <td><%= link_to 'Destroy', site, confirm: 'Are you sure?', method: :delete %></td>
@@ -24,4 +41,4 @@
 
 <br />
 
-<%= link_to 'New Site', new_site_path %>
+

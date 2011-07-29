@@ -1,18 +1,26 @@
 class SitesController < ApplicationController
-  # GET /sites
-  # GET /sites.json
+
   def index
     @sites = Site.all
- 
-    
+    @saved = @sites.count(:linkcp)
+
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sites }
     end
   end
-
   # GET /sites/1
   # GET /sites/1.json
+  
+  def search
+    @sites = Site.find(:all, conditions =>{:content => params[:search]})
+    
+    espond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @site }
+    end
+  end
+  
   def show
     @site = Site.find(params[:id])
 
@@ -42,13 +50,13 @@ class SitesController < ApplicationController
   # POST /sites.json
   def create
     @site = Site.new(params[:site])
-    re='((?:[a-z][a-z\\.\\d\\-]+)\\.(?:[a-z][a-z\\-]+))(?![\\w\\.])'	# Fully Qualified Domain Name 1
-
-    @m=Regexp.new(re,Regexp::IGNORECASE)
     
-    @host = @m.match(@site.linkws)[1]
-        
+    # Domain Name
+    re='((?:[a-z][a-z\\.\\d\\-]+)\\.(?:[a-z][a-z\\-]+))(?![\\w\\.])'	
+    @m=Regexp.new(re,Regexp::IGNORECASE)
+    @host = @m.match(@site.linkws)[1] 
     @site.host = @host
+    
     respond_to do |format|
       if @site.save
         format.html { redirect_to @site, notice: 'Site was successfully created.' }
