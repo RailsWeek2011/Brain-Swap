@@ -1,3 +1,15 @@
+TEST
+<table width="100%">
+  <tr>
+    <th>Datum</th>
+    <th>Title</th>
+    <th>Beschreibung</th>
+    <th>Category</th>
+    <th>Host</th>
+    <th>Gesichert</th>
+
+  </tr>
+
 <% @sites.each do |site| %>
   <tr class="<%=cycle('rowa','rowb')%>">
     <td><%= site.created_at.strftime('%d.%m.%y - %H:%M')+" h" %></td>

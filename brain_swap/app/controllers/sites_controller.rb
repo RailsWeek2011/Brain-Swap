@@ -3,23 +3,19 @@ class SitesController < ApplicationController
   def index
     @sites = Site.all
     @saved = @sites.count(:linkcp)
-
+    
+#    if params[:search]
+    @sites = Site.search(params[:search])
+#        render "search"
+#    else 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @sites }
+#    end
     end
   end
   # GET /sites/1
   # GET /sites/1.json
-  
-  def search
-    @sites = Site.find(:all, conditions =>{:content => params[:search]})
-    
-    espond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @site }
-    end
-  end
   
   def show
     @site = Site.find(params[:id])

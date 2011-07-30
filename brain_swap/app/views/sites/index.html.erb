@@ -1,11 +1,11 @@
 <h1>Brain Swap</h1>
-Test: 
-<% form_tag "/search", :method => 'get' do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-<% end %>
+
+<%= form_tag sites_path, :method => 'get' do %>
+    <p>
+        <%= text_field_tag :search, params[:search] %>
+        <%= submit_tag "Search", :name => nil%>
+    </p>
+<% end%>
 <%= link_to 'New Site', new_site_path %> 
 <table width="100%">
   <tr>
@@ -22,7 +22,7 @@ Test:
   <tr class="<%=cycle('rowa','rowb')%>">
     <td><%= site.created_at.strftime('%d.%m.%y - %H:%M')+" h" %></td>
     <td><%=link_to site.name, site.linkws %></td>
-    <td><%= raw site.content.gsub(/#(\w*)/) { link_to("##{$1}", "heise.de") }%></td>
+    <td><%= raw site.content.gsub(/#(\w*)/) { link_to("##{$1}", sites_path(:search => "bla")) }%></td>
     <td><%= site.category %></td>
     <td><%= site.host %></td>
     <% if @sites.count(:linkcp) != 0 %>

@@ -1,6 +1,6 @@
 BrainSwap::Application.routes.draw do
   resources :sites
-  get "/sites/search" => "sites#search"
+#  get "/sites/search" => "sites#search"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
